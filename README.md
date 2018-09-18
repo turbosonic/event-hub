@@ -18,7 +18,7 @@ For this scenario the Event Hub will send an event to a topic which all instance
 
 ![Architecture](img/architecture_pubsub.png)
 
-To abstract complexity from the microservices, the Event Hub uses the same Service Registry as the Service Mesh, this means that a microservice just needs to register itself once to be given both a queue and topic for itself. During this registration the microservice will declare which events it wants to be sent to a queue and which events it would like to be sent to a topic, this list is stored by the Service Registry and used by the Event Hub to know which events to forward through which mechanisms
+To abstract complexity from the microservices, the Event Hub a Service Registry, where a microservice just needs to register itself once to be given both a queue and topic for itself. During this registration the microservice will declare which events it wants to be sent to a queue and which events it would like to be sent to a topic, this list is stored by the Service Registry and used by the Event Hub to know which events to forward through which mechanisms
 
 With this pattern, individual microservices can be scaled to multiple instances and messages will only be receieved in the way the microservice requires. For queued messages it is imperative for microservices to use acknowledgements to notify the message broker that the event has been recieved and processed. This pattern also allows for all instances of a microservice to go offline and events to persist and be processed when they come back online.
 
