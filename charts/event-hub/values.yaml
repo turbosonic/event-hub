@@ -1,0 +1,23 @@
+# Default values for golang.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 3
+image:
+  pullPolicy: IfNotPresent
+service:
+  name: event-hub
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 8080
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+ingress:
+  enabled: false
+rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 1

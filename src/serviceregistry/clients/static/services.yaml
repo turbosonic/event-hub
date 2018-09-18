@@ -1,0 +1,21 @@
+- name: microservice-one
+  queue_events:
+    - "event-one"
+    - "event-two"
+  topic_events:
+    - "event-three"
+    - "event-four"
+- name: microservice-two
+  queue_events:
+    - "event-one"
+    - "event-three"
+  topic_events:
+    - "event-four"
+    - "event-five"
+- name: microservice-three
+  queue_events:
+    - "event-one"
+    - "event-three"
+  topic_events:
+    - "event-four"
+    - "event-five"

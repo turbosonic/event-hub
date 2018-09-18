@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Contino Microservice Event Hub
+name: event-hub
+version: v0.1.0
