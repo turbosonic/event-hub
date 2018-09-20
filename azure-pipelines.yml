@@ -7,8 +7,17 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: 'turbosonic/event-hub:$(build.buildId)'
+  imageName: '$(Build.Repository.Name):$(Build.SourceBranch)'
 
 steps:
 - script: docker build -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
+
+- task: Docker@1
+  displayName: 'Push an image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'Docker Hub'
+    command: 'Push an image'
+    imageName: '$(imageName)'
+
