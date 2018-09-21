@@ -9,15 +9,20 @@ pool:
 variables:
   imageName: '$(Build.Repository.Name):$(Build.SourceBranchName)'
 
-steps:
-- script: docker build -f Dockerfile -t $(imageName) .
-  displayName: 'docker build'
+jobs:
+  - job: build
+    steps:
+    - script: docker build -f Dockerfile -t $(imageName) .
+      displayName: 'docker build'
 
-- task: Docker@1
-  displayName: 'Push an image'
-  inputs:
-    containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: 'Docker Hub'
-    command: 'Push an image'
-    imageName: '$(imageName)'
+  - job: push
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+    steps:
+    - task: Docker@1
+      displayName: 'Push an image'
+      inputs:
+        containerregistrytype: 'Container Registry'
+        dockerRegistryEndpoint: 'Docker Hub'
+        command: 'Push an image'
+        imageName: '$(imageName)'
 
