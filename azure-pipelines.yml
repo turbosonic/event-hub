@@ -3,28 +3,22 @@
 # Add steps that use Docker Compose, tag images, push to a registry, run an image, and more:
 # https://docs.microsoft.com/vsts/pipelines/languages/docker
 
+pool:
+  vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: '$(Build.Repository.Name):$(Build.SourceBranchName)'
+  imageName: '$(Build.Repository.Name):$(Build.SourceBranch)'
 
-jobs:
-  - job: build
-    pool:
-      vmImage: 'Ubuntu 16.04'
-    steps:
-    - script: docker build -f Dockerfile -t $(imageName) .
-      displayName: 'docker build'
+steps:
+- script: docker build -f Dockerfile -t $(imageName) .
+  displayName: 'docker build'
 
-  - job: push
-    pool:
-      vmImage: 'Ubuntu 16.04'
-    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
-    steps:
-    - task: Docker@1
-      displayName: 'Push an image'
-      inputs:
-        containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'Docker Hub'
-        command: 'Push an image'
-        imageName: '$(imageName)'
+- task: Docker@1
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+  displayName: 'Push an image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'Docker Hub'
+    command: 'Push an image'
+    imageName: '$(imageName)'
 
