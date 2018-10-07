@@ -42,7 +42,7 @@ func (mqc MQClient) Listen(c chan []byte) {
 		}
 	}
 
-	q, err := mqc.ns.NewQueue(queueName)
+	q, err := mqc.ns.NewQueue(context.Background(), queueName)
 	if err != nil {
 		panic(err)
 	}
@@ -82,7 +82,7 @@ func (mqc MQClient) SendToQueue(queueName string, event *[]byte) error {
 			}
 		}
 
-		q, err := mqc.ns.NewQueue(queueName)
+		q, err := mqc.ns.NewQueue(context.Background(), queueName)
 		if err != nil {
 			log.Println("Create queue error:", err)
 			return err
@@ -121,7 +121,7 @@ func (mqc MQClient) SendToTopic(topicName string, event *[]byte) error {
 			}
 		}
 
-		t, err := mqc.ns.NewTopic(topicName)
+		t, err := mqc.ns.NewTopic(context.Background(), topicName)
 		if err != nil {
 			log.Println("Create Topic error:", err)
 			return err

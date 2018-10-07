@@ -58,7 +58,7 @@ func handleEvent(eventByteArray []byte, sr *serviceregistry.ServiceRegistry, msq
 	}
 
 	// give the event an ID
-	u, _ := uuid.NewV4()
+	u := uuid.NewV4()
 	e.ID = fmt.Sprint(u)
 
 	// add a handled time
