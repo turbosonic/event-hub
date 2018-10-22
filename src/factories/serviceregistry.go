@@ -6,6 +6,7 @@ import (
 
 	"contino.visualstudio.com/event-hub/src/serviceregistry"
 	"contino.visualstudio.com/event-hub/src/serviceregistry/clients/http"
+	"contino.visualstudio.com/event-hub/src/serviceregistry/clients/kubernetes"
 	"contino.visualstudio.com/event-hub/src/serviceregistry/clients/static"
 )
 
@@ -17,6 +18,9 @@ func ServiceRegistryClient() serviceregistry.Client {
 	case "static":
 		log.Println("[x] Using a static Service Registry")
 		return static.New()
+	case "kubernetes":
+		log.Println("[x] Using a Kubernetes annotations as a Service Registry")
+		return kubernetes.New()
 	default:
 		log.Println("[x] Using the default http Service Registry")
 		return http.New()

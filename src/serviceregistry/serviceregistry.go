@@ -69,6 +69,8 @@ func (sr *ServiceRegistry) getServices() {
 	ms, err := sr.client.GetMicroservices()
 	if err != nil {
 		log.Println("Could not retrieve services:", err, "- trying again in 5 seconds")
+	} else if len(ms) != len(sr.Microservices) {
+		log.Println(len(ms), "service(s) retrieved, list updated")
+		sr.Microservices = ms
 	}
-	sr.Microservices = ms
 }
