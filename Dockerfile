@@ -1,6 +1,6 @@
 # build stage
 FROM golang:1.10.2 AS build-env
-WORKDIR /go/src/event-hub/src
+WORKDIR /go/src/github.com/turbosonic/event-hub/src
 ADD src .
 ADD vendor ./vendor
 ADD Gopkg* ./
