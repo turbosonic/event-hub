@@ -5,7 +5,7 @@ import (
 	"log"
 	"path/filepath"
 
-	sr "contino.visualstudio.com/event-hub/src/serviceregistry"
+	sr "github.com/turbosonic/event-hub/src/serviceregistry"
 	yaml "gopkg.in/yaml.v2"
 )
 

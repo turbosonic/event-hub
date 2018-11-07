@@ -4,10 +4,10 @@ import (
 	"log"
 	"os"
 
-	"contino.visualstudio.com/event-hub/src/serviceregistry"
-	"contino.visualstudio.com/event-hub/src/serviceregistry/clients/http"
-	"contino.visualstudio.com/event-hub/src/serviceregistry/clients/kubernetes"
-	"contino.visualstudio.com/event-hub/src/serviceregistry/clients/static"
+	"github.com/turbosonic/event-hub/src/serviceregistry"
+	"github.com/turbosonic/event-hub/src/serviceregistry/clients/http"
+	"github.com/turbosonic/event-hub/src/serviceregistry/clients/kubernetes"
+	"github.com/turbosonic/event-hub/src/serviceregistry/clients/static"
 )
 
 // ServiceRegistryClient ...generates a concrete ServiceRegistryClient from environment variables

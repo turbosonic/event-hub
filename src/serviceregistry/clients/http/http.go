@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	sr "contino.visualstudio.com/event-hub/src/serviceregistry"
+	sr "github.com/turbosonic/event-hub/src/serviceregistry"
 )
 
 // ServiceRegistryClient ...an http ServiceRegistryClient

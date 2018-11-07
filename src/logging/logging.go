@@ -3,7 +3,7 @@ package logging
 import (
 	"time"
 
-	"contino.visualstudio.com/event-hub/src/dto"
+	"github.com/turbosonic/event-hub/src/dto"
 )
 
 type EventLog struct {

@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"contino.visualstudio.com/event-hub/src/logging"
+	"github.com/turbosonic/event-hub/src/logging"
 	elastic "gopkg.in/olivere/elastic.v5"
 )
 

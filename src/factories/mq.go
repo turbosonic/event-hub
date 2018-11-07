@@ -4,9 +4,9 @@ import (
 	"log"
 	"os"
 
-	"contino.visualstudio.com/event-hub/src/mq"
-	"contino.visualstudio.com/event-hub/src/mq/clients/activemq"
-	"contino.visualstudio.com/event-hub/src/mq/clients/azureservicebus"
+	"github.com/turbosonic/event-hub/src/mq"
+	"github.com/turbosonic/event-hub/src/mq/clients/activemq"
+	"github.com/turbosonic/event-hub/src/mq/clients/azureservicebus"
 )
 
 // MQClient ...generates a concrete MQClient from environment variables

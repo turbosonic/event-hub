@@ -3,7 +3,7 @@ package stdout
 import (
 	"fmt"
 
-	"contino.visualstudio.com/event-hub/src/logging"
+	"github.com/turbosonic/event-hub/src/logging"
 )
 
 type stdOutLogger struct {

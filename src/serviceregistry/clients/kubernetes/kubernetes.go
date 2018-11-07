@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	sr "contino.visualstudio.com/event-hub/src/serviceregistry"
+	sr "github.com/turbosonic/event-hub/src/serviceregistry"
 )
 
 type deployments struct {
@@ -29,7 +29,7 @@ type ServiceRegistryClient struct {
 func (c ServiceRegistryClient) GetMicroservices() ([]sr.Microservice, error) {
 	var d deployments
 
-	err := getJSON("http://localhost:8001/apis/apps/v1/namespaces/default/deployments", &d)
+	err := getJSON("http://localhost:8001/apis/apps/v1/deployments", &d)
 
 	s := make([]sr.Microservice, len(d.Items))
 
