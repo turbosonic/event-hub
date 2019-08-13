@@ -98,6 +98,18 @@
   version = "v1.1.1"
 
 [[projects]]
+  branch = "master"
+  digest = "1:50708c8fc92aec981df5c446581cf9f90ba9e2a5692118e0ce75d4534aaa14a2"
+  name = "github.com/influxdata/influxdb1-client"
+  packages = [
+    "models",
+    "pkg/escape",
+    "v2",
+  ]
+  pruneopts = "UT"
+  revision = "fc22c7df067eefd070157f157893fbce961d6359"
+
+[[projects]]
   digest = "1:ecd9aa82687cf31d1585d4ac61d0ba180e42e8a6182b85bd785fcca8dfeefc1b"
   name = "github.com/joho/godotenv"
   packages = ["."]
@@ -156,6 +168,17 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:e920bc6c70a77ed6fcb6eac7a7b90545dd9f64f6e42364525b6523a6efaa667f"
+  name = "github.com/turbosonic/api-gateway"
+  packages = [
+    "logging",
+    "logging/clients/influxdb",
+  ]
+  pruneopts = "UT"
+  revision = "d6ccaa96e718d3aa8b6992938c5b0c080dbedbdc"
+
+[[projects]]
+  branch = "master"
   digest = "1:a0af40974e6934f373b37ecea5c0d07c7a5f7c1f6284c0009589a7637c8c37b3"
   name = "golang.org/x/net"
   packages = [
@@ -205,8 +228,10 @@
     "github.com/Azure/azure-service-bus-go",
     "github.com/Microsoft/ApplicationInsights-Go/appinsights",
     "github.com/eclipse/paho.mqtt.golang",
+    "github.com/influxdata/influxdb1-client/v2",
     "github.com/joho/godotenv",
     "github.com/satori/go.uuid",
+    "github.com/turbosonic/api-gateway/logging/clients/influxdb",
     "gopkg.in/olivere/elastic.v5",
     "gopkg.in/yaml.v2",
     "pack.ag/amqp",
