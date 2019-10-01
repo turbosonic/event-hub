@@ -10,11 +10,11 @@ import (
 	"github.com/joho/godotenv"
 	uuid "github.com/satori/go.uuid"
 
-	"contino.visualstudio.com/event-hub/src/dto"
-	"contino.visualstudio.com/event-hub/src/factories"
-	"contino.visualstudio.com/event-hub/src/logging"
-	"contino.visualstudio.com/event-hub/src/mq"
-	"contino.visualstudio.com/event-hub/src/serviceregistry"
+	"github.com/turbosonic/event-hub/src/dto"
+	"github.com/turbosonic/event-hub/src/factories"
+	"github.com/turbosonic/event-hub/src/logging"
+	"github.com/turbosonic/event-hub/src/mq"
+	"github.com/turbosonic/event-hub/src/serviceregistry"
 )
 
 func main() {
@@ -53,7 +53,7 @@ func main() {
 func handleEvent(eventByteArray []byte, sr *serviceregistry.ServiceRegistry, msq *mq.MQ, logger *logging.Logger) {
 	e, err := dto.NewEventFromByteArray(&eventByteArray)
 	if err != nil {
-		log.Println("Could not create event from message: ", fmt.Sprint(&eventByteArray))
+		log.Println("Could not create event from message: ", err)
 		return
 	}
 

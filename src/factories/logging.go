@@ -1,13 +1,15 @@
 package factories
 
 import (
+	"fmt"
 	"log"
 	"os"
 
-	"contino.visualstudio.com/event-hub/src/logging"
-	"contino.visualstudio.com/event-hub/src/logging/clients/applicationinsights"
-	"contino.visualstudio.com/event-hub/src/logging/clients/elasticsearch"
-	"contino.visualstudio.com/event-hub/src/logging/clients/stdout"
+	"github.com/turbosonic/event-hub/src/logging"
+	"github.com/turbosonic/event-hub/src/logging/clients/applicationinsights"
+	"github.com/turbosonic/event-hub/src/logging/clients/elasticsearch"
+	"github.com/turbosonic/event-hub/src/logging/clients/influxdb"
+	"github.com/turbosonic/event-hub/src/logging/clients/stdout"
 )
 
 func NewLoggingClient() logging.LoggingClient {
@@ -20,6 +22,9 @@ func NewLoggingClient() logging.LoggingClient {
 	case "elasticsearch":
 		log.Println("[x] Using ElasticSearch for logging")
 		return elasticsearch.New()
+	case "influxdb":
+		fmt.Println("[x] Logging to InfluxDB")
+		return influxdb.New()
 	default:
 		log.Println("[x] Using stdout for logging")
 		return stdout.New()

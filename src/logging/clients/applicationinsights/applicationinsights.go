@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"contino.visualstudio.com/event-hub/src/logging"
 	"github.com/Microsoft/ApplicationInsights-Go/appinsights"
+	"github.com/turbosonic/event-hub/src/logging"
 )
 
 type applicationInsightsLogger struct {
